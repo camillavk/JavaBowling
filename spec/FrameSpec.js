@@ -36,6 +36,11 @@ describe('Frame', function() {
 			expect(frame.bowlOneScore).toEqual(4)
 		});
 
+		it('should not be able to hit more than ten pins', function() {
+			frame.bowlOne(10)
+			expect(frame.bowlTwoScore).toEqual(0)
+		});
+
 	});
 
 });
