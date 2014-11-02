@@ -20,11 +20,11 @@ describe('Game', function() {
 		});
 
 		it('it can calculate the total score', function() {
-			game.frame[0].bowlOne(10)
+			game.frame[0].bowlOne(9)
 			game.frame[1].bowlOne(3)
 			game.frame[1].bowlTwo(3)
 			game.calculateScore()
-			expect(game.totalScore).toEqual(16);
+			expect(game.totalScore).toEqual(15);
 		});
 
 		it('should score zero for a gutter game', function() {
@@ -36,7 +36,7 @@ describe('Game', function() {
 		expect(game.totalScore).toEqual(0);
 		});
 
-		xit('should be able to give bonus points for strike', function() {
+		it('should be able to give bonus points for strike', function() {
 			game.frame[0].bowlOne(10)
 			game.frame[1].bowlOne(5)
 			game.frame[1].bowlTwo(2)
@@ -44,7 +44,7 @@ describe('Game', function() {
 			expect(game.totalScore).toEqual(24)
 		});
 
-		xit('should be able to give bonus points for spare', function() {
+		it('should be able to give bonus points for spare', function() {
 			game.frame[0].bowlOne(5)
 			game.frame[0].bowlTwo(5)
 			game.frame[1].bowlOne(3)

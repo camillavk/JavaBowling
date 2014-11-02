@@ -4,16 +4,20 @@ function Game() {
 		this.frame.push(new Frame(i+1));
 	}
 	this.totalScore = 0;
-	this.frameScore = 0;
 };
 
-Game.prototype._frameScore = function(one, two) {
-	this.frameScore = this.frame[one].calculateScore()
-	return this.frameScore
-	// if(this.frame[one].bowlOneScore = 10){
-	// 	this.frameScore = 
-		// return this.frameScore
-	// }
+Game.prototype._frameScore = function(number) {
+	if(this.frame[number].checkBonus() === 'Strike') return this._strikeBonus(number);
+	if(this.frame[number].checkBonus() === 'Spare') return this._spareBonus(number);
+	return this.frame[number].calculateScore()
+};
+
+Game.prototype._strikeBonus = function(number) {
+	return this.frame[number].calculateScore() + this.frame[number+1].calculateScore();
+};
+
+Game.prototype._spareBonus = function(number) {
+	return this.frame[number].calculateScore() + this.frame[number+1].bowlOneScore;
 };
 
 Game.prototype.calculateScore = function() {
@@ -24,4 +28,3 @@ Game.prototype.calculateScore = function() {
 };
 
 
-// this.frame[one].bowlOneScore + this.frame[two].bowlOneScore + this.frame[two].bowlTwoScore + this.frame[two].bowlOneScore + this.frame[two].bowlTwoScore
