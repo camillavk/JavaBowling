@@ -19,6 +19,14 @@ describe('Game', function() {
 			expect(game.frameScore(0)).toEqual(7)
 		});
 
+		it('it can calculate the total score', function() {
+			game.frame[0].bowlOne(10)
+			game.frame[1].bowlOne(3)
+			game.frame[1].bowlTwo(3)
+			game.calculateScore()
+			expect(game.totalScore).toEqual(16)
+		});
+
 	});
 
 });
