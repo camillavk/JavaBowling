@@ -12,10 +12,6 @@ describe('Frame', function() {
 			expect(frame.pins).toEqual(10)
 		});
 
-		it('should have two turns', function() {
-			expect(frame.turns).toEqual(2)
-		});
-
 		it('should be able to calculate the remaining pins after two bowls', function() {
 			frame.bowlOne(3)
 			frame.bowlTwo(3)

@@ -6,8 +6,11 @@ function Game() {
 	this.totalScore = 0;
 };
 
-Game.prototype.frameScore = function(number) {
-	return this.frame[number].calculateScore()
+Game.prototype.frameScore = function(one, two) {
+	return this.frame[one].calculateScore()
+	if(this.frame[one].bowlOneScore = 10){
+		return this.frame[one].bowlOneScore + this.frame[two].bowlOneScore + this.frame[two].bowlTwoScore
+	}
 };
 
 Game.prototype.calculateScore = function() {
@@ -16,4 +19,3 @@ Game.prototype.calculateScore = function() {
 	}
 	return this.totalScore;
 };
-
