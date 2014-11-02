@@ -18,6 +18,23 @@ describe('Frame', function() {
 			expect(frame.calculateScore()).toEqual(6)
 		});
 
+		it('should know if the throw was a strike', function() {
+			frame.bowlOne(10)
+			expect(frame.checkBonus()).toEqual('Strike')
+		});
+
+		it('should know if it was a spare', function() {
+			frame.bowlOne(5)
+			frame.bowlTwo(5)
+			expect(frame.checkBonus()).toEqual('Spare')
+		});
+
+		it('should know if there are no bonuses', function() {
+			frame.bowlOne(2)
+			frame.bowlTwo(2)
+			expect(frame.checkBonus()).toEqual('none')
+		})
+
 	});
 
 	describe('Each turn', function() {

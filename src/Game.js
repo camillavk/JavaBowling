@@ -4,18 +4,24 @@ function Game() {
 		this.frame.push(new Frame(i+1));
 	}
 	this.totalScore = 0;
+	this.frameScore = 0;
 };
 
-Game.prototype.frameScore = function(one, two) {
-	return this.frame[one].calculateScore()
-	if(this.frame[one].bowlOneScore = 10){
-		return this.frame[one].bowlOneScore + this.frame[two].bowlOneScore + this.frame[two].bowlTwoScore
-	}
+Game.prototype._frameScore = function(one, two) {
+	this.frameScore = this.frame[one].calculateScore()
+	return this.frameScore
+	// if(this.frame[one].bowlOneScore = 10){
+	// 	this.frameScore = 
+		// return this.frameScore
+	// }
 };
 
 Game.prototype.calculateScore = function() {
 	for(var frame=0; frame<9; frame++){
-		this.totalScore += this.frameScore(frame);
+		this.totalScore += this._frameScore(frame);
 	}
 	return this.totalScore;
 };
+
+
+// this.frame[one].bowlOneScore + this.frame[two].bowlOneScore + this.frame[two].bowlTwoScore + this.frame[two].bowlOneScore + this.frame[two].bowlTwoScore

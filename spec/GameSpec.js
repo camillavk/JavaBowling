@@ -16,7 +16,7 @@ describe('Game', function() {
 		it('it can display the score of a frame', function() {
 			game.frame[0].bowlOne(3)
 			game.frame[0].bowlTwo(4)
-			expect(game.frameScore(0)).toEqual(7)
+			expect(game._frameScore(0)).toEqual(7)
 		});
 
 		it('it can calculate the total score', function() {
@@ -36,12 +36,20 @@ describe('Game', function() {
 		expect(game.totalScore).toEqual(0);
 		});
 
-		it('should be able to give bonus points', function() {
+		xit('should be able to give bonus points for strike', function() {
 			game.frame[0].bowlOne(10)
 			game.frame[1].bowlOne(5)
 			game.frame[1].bowlTwo(2)
 			game.calculateScore()
-			expect(game.totalScore).toEqual(17)
+			expect(game.totalScore).toEqual(24)
+		});
+
+		xit('should be able to give bonus points for spare', function() {
+			game.frame[0].bowlOne(5)
+			game.frame[0].bowlTwo(5)
+			game.frame[1].bowlOne(3)
+			game.calculateScore()
+			expect(game.totalScore).toEqual(16)
 		});
 
 	});
